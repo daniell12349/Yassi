@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Das👋-Tagebuch</title>
+<link rel="stylesheet" href="Ersatz.css">
+</head>
+<body>
+
+<!-- Countdown vor Namenseingabe -->
+<div id="countdown"></div>
+
+<!-- Namenseingabe -->
+<div id="name-verification">
+    <h1>Das</h1>
+    <h2 id="wave">👋</h2>
+    <h3>-Tagebuch</h3>
+    <input id="nameInput" type="text" placeholder="Belle oder das Beast?">
+    <p id="nameError" class="fehlermeldung"></p>
+    <button onclick="nameBestätigen()">Bestätigen</button>
+</div>
+
+<!-- Passwortbereich (erst sichtbar nach Name) -->
+<div id="passwort-bereich" class="hidden">
+    <div id="keypad-text">Gib dein Passwort ein</div>
+    <div id="passwort-anzeige"></div>
+    <div id="tastenfeld">
+        <button class="key">1</button>
+        <button class="key">2</button>
+        <button class="key">3</button>
+        <button class="key">4</button>
+        <button class="key">5</button>
+        <button class="key">6</button>
+        <button class="key">7</button>
+        <button class="key">8</button>
+        <button class="key">9</button>
+        <button class="key">0</button>
+        <button id="clear">C</button>
+        <button id="submitPassword">OK</button>
+    </div>
+    <p id="passwordError" class="fehlermeldung"></p>
+</div>
+
+<script src="WebseiteY.js"></script>
+</body>
+</html>

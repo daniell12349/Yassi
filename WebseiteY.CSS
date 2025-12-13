@@ -1,0 +1,350 @@
+/* ===========================
+   Grundlegendes Styling
+   =========================== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #e97406, #000000, #750079, #f3020a);
+    background-size: 400% 400%;
+    animation: verlaufAnimation2 30s ease infinite;
+    overflow: hidden;
+}
+
+/* Hintergrund Animationen */
+@keyframes verlaufAnimation2 {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body.romantischer-hintergrund {
+    animation: verlaufAnimation 10s ease infinite;
+    background: linear-gradient(135deg, #ff00ff, #a020f0, #ff69b4, #00bfff);
+    background-size: 400% 400%;
+}
+
+@keyframes verlaufAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body.daniell-hintergrund {
+    animation: verlaufAnimation 10s ease infinite;
+    background: linear-gradient(to right, #09e28f, #180291 , #02e70e , #a6ff01);
+}
+
+#countdown {
+    position: absolute;
+    top: 10%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    color: #fff;
+    text-shadow: 2px 2px 8px #000;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #fff, 0 0 10px #ff0, 0 0 20px #f0f, 0 0 30px #0ff; }
+    100% { text-shadow: 0 0 10px #fff, 0 0 20px #ff0, 0 0 30px #f0f, 0 0 40px #0ff; }
+}
+
+/* ===========================
+   Namensverifizierung
+   =========================== */
+#name-verification {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: #fff;
+    text-align: center;
+}
+
+/* Überschrift H1/H3 zentral oben mit Abstand für Hand */
+#name-verification h1,
+#name-verification h3 {
+    font-size: 100px;
+    margin: 0;
+    text-shadow: 2px 2px 6px #e70808;
+    z-index: 1;
+}
+
+#name-verification h1 {
+    position: absolute;
+    left: 40%;
+    top: 20%;
+    transform: translate(-50%, -50%);
+}
+
+#name-verification h3 {
+    position: absolute;
+    left: 70%;
+    top: 20%;
+    transform: translate(-50%, -50%);
+}
+
+/* Winkende Hand in großem Kreis zwischen H1 und H3 */
+#wave {
+    font-size: 200px;
+    position: absolute;
+    top: 40%;
+    left: 58%;
+    transform: translate(-50%, -50%);
+    transform-origin: -150px 0; /* Kreis-Radius */
+    animation: handKreis 5s linear infinite;
+    z-index: 2;
+}
+
+@keyframes handKreis {
+    0%   { transform: rotate(0deg); }
+    45%  { transform: rotate(250deg); }   /* Hand kommt zur Pause-Position */
+    55%  { transform: rotate(250deg); }   /* kurze Pause */
+    100% { transform: rotate(360deg); }  /* restlicher Kreis */
+}
+
+/* ===========================
+   Input & Button zentral
+   =========================== */
+#name-verification input {
+    padding: 20px;
+    font-size: 28px;
+    border-radius: 10px;
+    border: 3px solid #0b219b;
+    width: 300px;
+    text-align: center;
+    animation: inputPop 1s ease forwards;
+    position: absolute;
+    left: 40%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+#name-verification button {
+    padding: 15px 30px;
+    font-size: 22px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(45deg, #0b219b, #4c6ef5);
+    color: #0b34eb;
+    text-shadow: 1px 1px 4px #000;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: absolute;
+    left: 48%;
+    top: 62%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+#name-verification button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #fff;
+}
+
+@keyframes inputPop {
+    0% { transform: translateY(-50px) scale(0.8); opacity: 0; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+/* ===========================
+   Passwortbereich & Keypad
+   =========================== */
+.hidden { display: none !important; }
+
+#passwort-bereich {
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgba(133, 107, 134, 0.644);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Text über Keypad */
+#keypad-text {
+    font-size: 50px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #000000;
+    text-shadow: 2px 2px 6px #000000;
+}
+
+/* Passwort-Slots */
+#passwort-anzeige {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.passwort-slot {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    background-color: #fff;
+    transition: transform 0.2s, background-color 0.3s, filter 0.2s;
+}
+
+.passwort-slot.gefüllt {
+    background-color: #000000;
+    color: #ffffff;
+    animation: pop 0.2s;
+    filter: blur(0);
+}
+
+/* ===========================
+   Keypad Styling
+   =========================== */
+#tastenfeld {
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-gap: 15px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.key {
+    width: 80px;
+    height: 80px;
+    font-size: 24px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: 2px solid #333;
+    transition: transform 0.15s, box-shadow 0.2s, background 0.3s, filter 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Keypad Effekte für normale Namen */
+body.romantischer-hintergrund .key {
+    background: linear-gradient(135deg, #7e02f3, #180291);
+}
+
+body.romantischer-hintergrund .key:active {
+    transform: scale(1.2) rotate(-5deg);
+    box-shadow: 0 0 20px #000000;
+    background: linear-gradient(135deg, #ffcc33, #ffb347);
+}
+
+/* Keypad Effekte für Daniel */
+body.daniell-hintergrund .key {
+    background: linear-gradient(135deg, #00ffff, #0077ff);
+    color: #000;
+    font-weight: bold;
+}
+
+body.daniell-hintergrund .key:active {
+    transform: scale(1.25) rotate(5deg);
+    box-shadow: 0 0 25px #0ff;
+    background: linear-gradient(135deg, #0077ff, #00ffff);
+    color: #000000;
+}
+
+/* Keypad Pop-in Animation */
+body.romantischer-hintergrund #tastenfeld,
+body.daniell-hintergrund #tastenfeld {
+    animation: keypadAppear 0.5s ease forwards;
+    opacity: 0;
+}
+
+@keyframes keypadAppear {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* ===========================
+   Partikelanimation beim Drücken
+   =========================== */
+.key span.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #f50303;
+    border-radius: 50%;
+    animation: particleAnim 0.5s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes particleAnim {
+    0% { opacity: 1; transform: translate(0,0) scale(1); }
+    100% { opacity: 0; transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px)) scale(0); }
+}
+
+/* Passwort Pop Animation */
+@keyframes pop {
+    0% { transform: scale(0.5); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* ===========================
+   Responsive für Handy
+   =========================== */
+@media (max-width: 768px) {
+    #name-verification h1,
+    #name-verification h3 {
+        font-size: 60px;
+    }
+
+    #wave {
+        font-size: 120px;
+        transform-origin: -80px 0;
+        top: 35%;
+        left: 50%;
+    }
+
+    #name-verification input {
+        width: 200px;
+        font-size: 20px;
+        left: 50%;
+        top: 55%;
+    }
+
+    #name-verification button {
+        left: 50%;
+        top: 65%;
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+
+    #tastenfeld {
+        grid-template-columns: repeat(3, 60px);
+        grid-gap: 10px;
+    }
+
+    .key {
+        width: 60px;
+        height: 60px;
+        font-size: 18px;
+    }
+
+    #keypad-text {
+        font-size: 32px;
+    }
+
+    #passwort-anzeige .passwort-slot {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    #countdown {
+        font-size: 24px;
+        top: 8%;
+    }
+}
